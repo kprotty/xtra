@@ -1,6 +1,6 @@
 use crate::envelope::MessageEnvelope;
 use crate::{Actor, Address, Context, KeepRunning, WeakAddress};
-use flume::Receiver;
+use floom_async::Receiver;
 use std::sync::Arc;
 
 /// A message that can be sent by an [`Address`](struct.Address.html) to the [`ActorManager`](struct.ActorManager.html)
@@ -73,7 +73,7 @@ impl<A: Actor> ActorManager<A> {
     /// its manager. The `ActorManager::manage` future has to be executed for the actor to actually
     /// start.
     pub(crate) fn start(actor: A) -> (Address<A>, ActorManager<A>) {
-        let (sender, receiver) = flume::unbounded();
+        let (sender, receiver) = floom_async::unbounded();
         let ref_counter = Arc::new(());
         let addr = WeakAddress {
             sender: sender.clone(),

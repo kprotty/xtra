@@ -12,6 +12,7 @@ keywords = ["async", "actor", "futures", "tokio", "async-std"]
 
 [dependencies]
 flume = { git = "https://github.com/zesterer/flume", default-features = false, features = ["async"] }
+floom_async = { path = "./floom_async" }
 futures = { version = "^0.3" }
 tokio = { version = "^0.2", features = ["rt-core", "time"], optional = true }
 async-std = { version = "^1", features = ["unstable"], optional = true }

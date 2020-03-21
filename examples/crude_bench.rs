@@ -99,7 +99,7 @@ impl SyncHandler<TimeReturn> for ReturnTimer {
 
 #[tokio::main]
 async fn main() {
-    const COUNT: usize = 100_000_000; // May take a while on some machines
+    const COUNT: usize = 1_000_000; // May take a while on some machines
 
     /* Time do_send */
 
